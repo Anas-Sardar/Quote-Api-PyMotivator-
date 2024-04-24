@@ -1,5 +1,5 @@
 import requests
-
+from twilio_conn import send_whatsapp_text,client 
 url = "https://api.quotable.io/quotes/random"
 while True:
     res = requests.get(url=url)
@@ -12,10 +12,12 @@ while True:
     if any(tag.lower() in ['inspirational', 'motivational'] for tag in tags):
         break
 
-content = data['content']
+quote = data['content']
 author = data['author']
 tags = data['tags']
 
-print("Quote:", content)
+print("Quote:", quote)
 print("Author:", author)
 #print("Category:", tags)
+
+send_whatsapp_text(client,quote)
