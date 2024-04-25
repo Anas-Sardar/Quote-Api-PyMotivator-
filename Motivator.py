@@ -20,4 +20,4 @@ print("Quote:", quote)
 print("Author:", author)
 #print("Category:", tags)
 
-send_whatsapp_text(client,quote)
+send_whatsapp_text(client,quote,author)
